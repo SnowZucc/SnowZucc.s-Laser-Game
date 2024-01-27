@@ -391,7 +391,7 @@ Transform:
   m_GameObject: {fileID: 372735640}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.146974, y: -3.881058, z: -3.9768844}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 1041380855}
   - component: {fileID: 1041380854}
   - component: {fileID: 1041380853}
+  - component: {fileID: 1041380857}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -835,6 +836,18 @@ Transform:
   - {fileID: 1572049388}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1041380857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041380852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eaae11585cf73d42a1712896222e64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1053913570
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +982,7 @@ Transform:
   m_GameObject: {fileID: 1285719371}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.146974, y: -3.881058, z: -3.9768844}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2043,7 +2056,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1603733050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9786254388ac6f499b2e131b2fd1f0d, type: 3}
+  m_Script: {fileID: 11500000, guid: d24bd674fb22bc44990220f877b44cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 1603733052}
@@ -2744,6 +2757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019075627}
   - component: {fileID: 2019075626}
+  - component: {fileID: 2019075628}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -2784,6 +2798,19 @@ Transform:
   - {fileID: 1472893252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2019075628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019075625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5cbb4bb97a8eb48810a3fff340ba0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 11711766586467970, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
 --- !u!1 &2122310277
 GameObject:
   m_ObjectHideFlags: 0
