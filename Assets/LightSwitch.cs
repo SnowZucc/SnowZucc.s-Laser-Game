@@ -21,6 +21,8 @@ public class LightSwitch : MonoBehaviour
         {
             light.color = blue;
         }
+
+        // change the light every frame (test for fun)
          //light.color = new Color(Random.value, Random.value, Random.value, 1);
     }
 }

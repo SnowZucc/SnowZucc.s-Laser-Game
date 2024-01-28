@@ -9,7 +9,8 @@ public class Breakout : MonoBehaviour
     {
         // Orbit around the main sphere
         transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
-        // Change color of the sphere every frame
-        GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value, 1);
+
+        // Change color of the sphere every frame (test for fun)
+        // GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value, 1);
     }
 }
