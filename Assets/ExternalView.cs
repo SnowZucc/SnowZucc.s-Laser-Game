@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     { // Checks if player is in external view and teleports the player to the room view or to the external view (Gameobjects)
-        if (Input.GetKeyDown(KeyCode.JoystickButton2))
+        if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             if (isExternalView)
             {

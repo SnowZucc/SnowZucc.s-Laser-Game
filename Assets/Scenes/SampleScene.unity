@@ -624,9 +624,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\n\n\n\n\n\n\n\n\n\n\n\nWelcome to my world !\n\nControls (Oculus Touch):\n  
-    B to switch the light to blue\n   X to go to the external view\n   A to quit\n\nThe
-    roof and the windows are homemade with Blender\nThe rest of the assets comes
-    from the Unity Assets Store"
+    A to toggle double rotation\n   B to toggle gravity\n   X to quit\n\nThe roof
+    and the windows are homemade with Blender\nThe rest of the assets comes from
+    the Unity Assets Store"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1726,6 +1726,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30663d2e0eae90940b64eff3e2f719f4, type: 3}
+--- !u!1 &572723034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36df2876932ca6b448b29d0333cec2ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1069297741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &606883802
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,7 +3448,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 36df2876932ca6b448b29d0333cec2ba,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1069297745}
   m_SourcePrefab: {fileID: 100100000, guid: 36df2876932ca6b448b29d0333cec2ba, type: 3}
 --- !u!4 &1069297742 stripped
 Transform:
@@ -3450,6 +3460,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1069297741}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1069297745
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572723034}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 70938051568833006, guid: 36df2876932ca6b448b29d0333cec2ba, type: 3}
 --- !u!1001 &1100714393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4202,7 +4234,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1331774750
 Rigidbody:
@@ -4701,6 +4733,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 1603733052}
+  blue:
+    r: 0
+    g: 0
+    b: 1
+    a: 1
 --- !u!4 &1636572264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 30663d2e0eae90940b64eff3e2f719f4,
@@ -6033,7 +6070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cbb4bb97a8eb48810a3fff340ba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 11711766586467970, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  action: {fileID: -631344258065148156, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
 --- !u!114 &2019075629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6300,7 +6337,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

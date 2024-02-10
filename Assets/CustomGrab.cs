@@ -16,8 +16,8 @@ public class CustomGrab : MonoBehaviour
     private Vector3 previousPosition;
     private Quaternion previousRotation;
 
-    // Additional feature to double the rotation
     public bool doubleRotation = false;
+    private bool gravityEnabled = false;
 
     private void Start()
     {
@@ -36,24 +36,20 @@ void Update()
     grabbing = action.action.IsPressed();
     if (grabbing)
     {
-        // Grab nearby object or the object in the other hand
         if (!grabbedObject)
             grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
 
         if (grabbedObject)
         {
-            // Calculate delta position and rotation
             Vector3 deltaPosition = transform.position - previousPosition;
             Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(previousRotation);
 
-            // Apply delta position and rotation to the grabbed object
             grabbedObject.position += deltaPosition;
 
-            // Calculate new rotation for the grabbed object
             Quaternion newRotation = deltaRotation * grabbedObject.rotation;
             grabbedObject.rotation = newRotation;
 
-            // Double the rotation if enabled
+            // Double rotation
             if (doubleRotation)
             {
                 Vector3 rotationAxis;
@@ -62,18 +58,43 @@ void Update()
                 grabbedObject.rotation = Quaternion.AngleAxis(rotationAngle * 2f, rotationAxis) * grabbedObject.rotation;
             }
 
-            // Update previous position and rotation
             previousPosition = transform.position;
             previousRotation = transform.rotation;
+
+            // Get the rigidbody component of the grabbed object (to later disable its gravity when grabbed)
+            Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+            // Disable object's rigidbody gravity and stop its movement (otherwise it goes away)
+            rb.useGravity = false;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
-    // If let go of button, release object
     else if (grabbedObject)
-        grabbedObject = null;
+    {
+        if (gravityEnabled)
+        {
+            // Get the rigidbody component of the grabbed object
+            Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+            // Re-enable object's gravity
+            rb.useGravity = true;
+        }
 
-    // Should save the current position and rotation here
+        grabbedObject = null;
+    }
+
     previousPosition = transform.position;
     previousRotation = transform.rotation;
+
+    // The buttons to toggle things
+    if (Input.GetKeyDown(KeyCode.JoystickButton1))
+    {
+        doubleRotation = !doubleRotation;
+    }
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton2))
+    {
+        gravityEnabled = !gravityEnabled;
+    }
 }
 
     private void OnTriggerEnter(Collider other)
