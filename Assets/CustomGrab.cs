@@ -31,47 +31,50 @@ public class CustomGrab : MonoBehaviour
         }
     }
 
-    void Update()
+void Update()
+{
+    grabbing = action.action.IsPressed();
+    if (grabbing)
     {
-        grabbing = action.action.IsPressed();
-        if (grabbing)
+        // Grab nearby object or the object in the other hand
+        if (!grabbedObject)
+            grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
+
+        if (grabbedObject)
         {
-            // Grab nearby object or the object in the other hand
-            if (!grabbedObject)
-                grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
+            // Calculate delta position and rotation
+            Vector3 deltaPosition = transform.position - previousPosition;
+            Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(previousRotation);
 
-            if (grabbedObject)
+            // Apply delta position and rotation to the grabbed object
+            grabbedObject.position += deltaPosition;
+
+            // Calculate new rotation for the grabbed object
+            Quaternion newRotation = deltaRotation * grabbedObject.rotation;
+            grabbedObject.rotation = newRotation;
+
+            // Double the rotation if enabled
+            if (doubleRotation)
             {
-                // Calculate delta position and rotation
-                Vector3 deltaPosition = transform.position - previousPosition;
-                Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(previousRotation);
-
-                // Apply delta position and rotation to the grabbed object
-                grabbedObject.position += deltaPosition;
-                grabbedObject.rotation *= deltaRotation;
-
-                // Double the rotation if enabled
-                if (doubleRotation)
-                {
-                    Vector3 rotationAxis;
-                    float rotationAngle;
-                    deltaRotation.ToAngleAxis(out rotationAngle, out rotationAxis);
-                    grabbedObject.rotation *= Quaternion.AngleAxis(rotationAngle * 2f, rotationAxis);
-                }
-
-                // Update previous position and rotation
-                previousPosition = transform.position;
-                previousRotation = transform.rotation;
+                Vector3 rotationAxis;
+                float rotationAngle;
+                deltaRotation.ToAngleAxis(out rotationAngle, out rotationAxis);
+                grabbedObject.rotation = Quaternion.AngleAxis(rotationAngle * 2f, rotationAxis) * grabbedObject.rotation;
             }
-        }
-        // If let go of button, release object
-        else if (grabbedObject)
-            grabbedObject = null;
 
-        // Should save the current position and rotation here
-        previousPosition = transform.position;
-        previousRotation = transform.rotation;
+            // Update previous position and rotation
+            previousPosition = transform.position;
+            previousRotation = transform.rotation;
+        }
     }
+    // If let go of button, release object
+    else if (grabbedObject)
+        grabbedObject = null;
+
+    // Should save the current position and rotation here
+    previousPosition = transform.position;
+    previousRotation = transform.rotation;
+}
 
     private void OnTriggerEnter(Collider other)
     {

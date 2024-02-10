@@ -9,7 +9,7 @@ void Start()
 {
     // Set the initial rotation of camera1 and camera2 so camera2 does not look sideways in method 2 (does not work)
     //camera1.rotation = Quaternion.Euler(0, 0, 0);
-    camera2.rotation = Quaternion.Euler(0, 0, 0);
+    //camera2.rotation = Quaternion.Euler(0, 0, 0);
 }
 
 void Update()
