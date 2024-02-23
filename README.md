@@ -1,4 +1,4 @@
 # Unity VR game project
 
-Main branch is the latest progress (currently arround HW2).
-HW1 only is accessible via the HW1 branch.
+Main branch is the latest progress.
+HW1 or HW2 only are accessible via their respective branches.
