@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        //disableRagdoll();
+        disableRagdoll();
     }
 
     public void TakeDamage(float amount)
@@ -19,6 +19,12 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0.0f)
         {
+        //animator.enabled = false;
+        foreach (var item in GetComponentsInChildren<Rigidbody>())
+            {
+                item.isKinematic = false;
+            }
+
             StartCoroutine(DestroyAfterDelay(5.0f));
         }
     } 
@@ -30,17 +36,6 @@ public class Health : MonoBehaviour
             item.isKinematic = true;
         }
         //animator.enabled = true;
-    }
-
-    public void Die()
-    {
-        animator.enabled = false;
-        
-        foreach (var item in GetComponentsInChildren<Rigidbody>())
-        {
-            item.isKinematic = true;
-        }
-        StartCoroutine(DestroyAfterDelay(5.0f));
     }
 
     private IEnumerator DestroyAfterDelay(float delay)
