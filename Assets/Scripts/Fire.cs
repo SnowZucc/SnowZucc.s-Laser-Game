@@ -12,6 +12,7 @@ public class Fire : MonoBehaviour
     private AudioSource audioSource; // The audio source
     private bool canFire = true; // Whether the gun can be fired
     private float fireCooldown = 0.5f; // The cooldown time in seconds
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,6 @@ public class Fire : MonoBehaviour
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(FireBullet);
         audioSource = GetComponent<AudioSource>(); // Get the audio source
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void FireBullet(ActivateEventArgs arg)

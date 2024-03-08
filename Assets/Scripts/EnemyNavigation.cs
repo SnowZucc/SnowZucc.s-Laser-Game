@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NavigationScript : MonoBehaviour
+public class EnemyNavigation : MonoBehaviour
 {
     public Transform player;
     private NavMeshAgent agent;
@@ -21,4 +21,5 @@ public class NavigationScript : MonoBehaviour
         agent.destination = player.position;
         animator.SetFloat("speed", agent.velocity.magnitude);
     }
+
 }

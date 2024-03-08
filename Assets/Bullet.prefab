@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3737080576320067926}
   - component: {fileID: 8521804618762737008}
   - component: {fileID: 2053677567109439733}
+  - component: {fileID: 5578795772443144159}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.618602, y: 0.91, z: -4.649568}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.2}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8630551318645219951}
@@ -134,6 +135,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &5578795772443144159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078645578156288237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3807de520cee1374993b3b657ca61b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!1 &2390175302445521289
 GameObject:
   m_ObjectHideFlags: 0
