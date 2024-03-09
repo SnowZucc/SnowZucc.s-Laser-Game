@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
     private Animator animator;
+    private NavMeshAgent navMeshAgent;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         disableRagdoll();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     public void TakeDamage(float amount)
@@ -20,6 +23,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0.0f)
         {
         //animator.enabled = false;
+        navMeshAgent.enabled = false;
         foreach (var item in GetComponentsInChildren<Rigidbody>())
             {
                 item.isKinematic = false;
