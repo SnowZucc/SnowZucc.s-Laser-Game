@@ -31,7 +31,7 @@ public void TakeDamage(float amount)
             item.angularDrag = 10f; // Increase angularDrag to slow down rotation
         }
 
-        StartCoroutine(ResetDragAfterDelay(rigidbodies, 0.5f));
+        StartCoroutine(ResetDragAfterDelay(rigidbodies, 0.2f));
 
         StartCoroutine(DestroyAfterDelay(5.0f));
     }
