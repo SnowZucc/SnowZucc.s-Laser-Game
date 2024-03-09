@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     public float damage; 
     public AudioClip killSound;
@@ -9,12 +9,12 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player")
         {
             var health = collision.gameObject.GetComponentInParent<Health>();
             if (health != null)
             {
-                health.TakeDamage(damage);
+                //health.TakeDamage(damage); // Disable damage for now
                 if (health.currentHealth <= 0)
                 {
                     // Apply force to the Rigidbody that was directly hit

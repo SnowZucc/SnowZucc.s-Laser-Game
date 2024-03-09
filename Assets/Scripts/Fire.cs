@@ -11,7 +11,7 @@ public class Fire : MonoBehaviour
     public AudioClip[] fireSounds; // The sound effects
     private AudioSource audioSource; // The audio source
     private bool canFire = true; // Whether the gun can be fired
-    private float fireCooldown = 0.5f; // The cooldown time in seconds
+    private float fireCooldown = 0.3f; // The cooldown time in seconds
     public float damage;
 
     // Start is called before the first frame update

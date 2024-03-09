@@ -17,21 +17,41 @@ public class Health : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    public void TakeDamage(float amount)
+public void TakeDamage(float amount)
+{
+    currentHealth -= amount;
+    if (currentHealth <= 0.0f)
     {
-        currentHealth -= amount;
-        if (currentHealth <= 0.0f)
-        {
-        //animator.enabled = false;
         navMeshAgent.enabled = false;
-        foreach (var item in GetComponentsInChildren<Rigidbody>())
-            {
-                item.isKinematic = false;
-            }
-
-            StartCoroutine(DestroyAfterDelay(5.0f));
+        var rigidbodies = GetComponentsInChildren<Rigidbody>();
+        foreach (var item in rigidbodies)
+        {
+            item.isKinematic = false;
+            item.drag = 10f; // Increase drag to slow down
+            item.angularDrag = 10f; // Increase angularDrag to slow down rotation
         }
-    } 
+
+        StartCoroutine(ResetDragAfterDelay(rigidbodies, 0.5f));
+
+        StartCoroutine(DestroyAfterDelay(5.0f));
+    }
+} 
+
+private IEnumerator ResetDragAfterDelay(Rigidbody[] rigidbodies, float delay)
+{
+    yield return new WaitForSeconds(delay);
+    foreach (var item in rigidbodies)
+    {
+        item.drag = 0f; // Reset drag
+        item.angularDrag = 0.05f; // Reset angularDrag
+    }
+}
+
+    private IEnumerator ResetTimeAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        Time.timeScale = 1f;
+    }
 
     public void disableRagdoll()
     {
