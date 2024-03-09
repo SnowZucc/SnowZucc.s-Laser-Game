@@ -3,40 +3,55 @@ using UnityEngine;
 public class HandForce : MonoBehaviour
 {
     public float damage;
-    private Vector3 lastPosition; // The position of the hand in the previous frame
-    private Vector3 currentVelocity; // The velocity of the hand
+    public AudioClip killSound;
+    public float minForceForDamage;
+    private AudioSource audioSource;
+    private Vector3 lastPosition;
+    private Vector3 currentVelocity;
+    private bool hasHit = false; // Add this line
 
-    private void Update()
+    void Start()
     {
-        // Calculate the current velocity (to apply the force to the enemy because it won't work automaticaly with onCollision)
-        currentVelocity = (transform.position - lastPosition) / Time.deltaTime;
+        audioSource = GetComponent<AudioSource>();
+    }
 
-        // Store the current position for the next frame
+    void Update()
+    {
+        currentVelocity = (transform.position - lastPosition) / Time.deltaTime;
         lastPosition = transform.position;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && !hasHit) // Check the hasHit variable here
         {
-            var health = other.gameObject.GetComponentInParent<Health>();
-            if (health != null)
+            if (currentVelocity.magnitude >= minForceForDamage)
             {
-                health.TakeDamage(damage);
-                if (health.currentHealth <= 0)
+                var health = other.gameObject.GetComponentInParent<Health>();
+                if (health != null)
                 {
-                    // Apply force to the Rigidbody that was directly hit
-                    var hitRigidbody = other.attachedRigidbody;
-                    if (hitRigidbody != null)
+                    health.TakeDamage(damage);
+                    if (health.currentHealth <= 0)
                     {
-                        // Calculate the direction from the hand to the enemy
-                        Vector3 direction = other.transform.position - transform.position;
-
-                        // Apply a force in the direction of the impact, proportional to the hand's velocity
-                        hitRigidbody.AddForce(direction.normalized * currentVelocity.magnitude * 15, ForceMode.Impulse);
+                        audioSource.PlayOneShot(killSound);
+                        var hitRigidbody = other.attachedRigidbody;
+                        if (hitRigidbody != null)
+                        {
+                            Vector3 direction = other.transform.position - transform.position;
+                            hitRigidbody.AddForce(direction.normalized * currentVelocity.magnitude * 10, ForceMode.Impulse);
+                        }
                     }
                 }
             }
+            hasHit = true; // Set the hasHit variable to true after the enemy has been hit
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            hasHit = false; // Reset the hasHit variable when the hand leaves the enemy's collider
         }
     }
 }
