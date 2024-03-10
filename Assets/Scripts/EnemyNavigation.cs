@@ -9,9 +9,16 @@ public class EnemyNavigation : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
 
+    public AudioClip spawnSound; // The sound effects
+    private AudioSource audioSource; // The audio source
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>(); // Get the audio source
+        audioSource.spatialBlend = 1f;
+        audioSource.PlayOneShot(spawnSound);
+        
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 

@@ -9,6 +9,10 @@ public class Health : MonoBehaviour
     public float currentHealth;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+
+    public AudioClip hitSound;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +31,13 @@ public void TakeDamage(float amount)
         foreach (var item in rigidbodies)
         {
             item.isKinematic = false;
-            item.drag = 10f; // Increase drag to slow down
-            item.angularDrag = 10f; // Increase angularDrag to slow down rotation
+            //item.drag = 10f; // Increase drag to slow down
+            //item.angularDrag = 10f; // Increase angularDrag to slow down rotation
         }
 
-        StartCoroutine(ResetDragAfterDelay(rigidbodies, 0.2f));
+        //audioSource.PlayOneShot(hitSound, 0.3f);
+
+        //StartCoroutine(ResetDragAfterDelay(rigidbodies, 0.1f));
 
         StartCoroutine(DestroyAfterDelay(5.0f));
     }

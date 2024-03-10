@@ -8,8 +8,8 @@ public class EnemyFire : MonoBehaviour
     public GameObject bullet;
     public Transform spawnPoint;
     public float fireSpeed = 50;
-public AudioClip[] fireSounds; // The sound effects
-private AudioSource audioSource; // The audio source
+    public AudioClip[] fireSounds; // The sound effects
+    private AudioSource audioSource; // The audio source
 public float damage;
 
 // Start is called before the first frame update
@@ -24,7 +24,7 @@ public void FireBullet()
 {
     GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
     spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
-    //Destroy(spawnedBullet, 0.4f);
+    Destroy(spawnedBullet, 1f);
 
     // Select a random sound effect
     AudioClip fireSound = fireSounds[Random.Range(0, fireSounds.Length)];

@@ -4,8 +4,6 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float damage; 
-    public AudioClip killSound;
-    private AudioSource audioSource;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +12,7 @@ public class EnemyBullet : MonoBehaviour
             var health = collision.gameObject.GetComponentInParent<PlayerHealth>();
             if (health != null)
             {
-                health.TakeDamage(damage); // Disable damage for now
+                health.TakeDamage(damage); 
             }
 
             // Start a coroutine to destroy the bullet after a delay

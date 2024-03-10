@@ -4,8 +4,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage; 
-    public AudioClip killSound;
-    private AudioSource audioSource;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -17,8 +15,8 @@ public class Bullet : MonoBehaviour
                 health.TakeDamage(damage);
                 if (health.currentHealth <= 0)
                 {
+                    
                     // Apply force to the Rigidbody that was directly hit
-                    //audioSource.PlayOneShot(killSound);
                     var hitRigidbody = collision.rigidbody;
                     if (hitRigidbody != null)
                     {

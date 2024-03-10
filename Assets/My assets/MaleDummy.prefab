@@ -1630,6 +1630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: dbcdbc95573f4f84880b2ebe04e13b61, type: 3}
 --- !u!195 &922774152380470913
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1666,6 +1667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  hitSound: {fileID: 8300000, guid: ea9bc7d77bc98414caf89f88c621a7c3, type: 3}
 --- !u!82 &4492317706075314866
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1676,7 +1678,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dbcdbc95573f4f84880b2ebe04e13b61, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5524,7 +5526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 2078645578156288237, guid: 106784762b56ad744a83f4ec54940368, type: 3}
   spawnPoint: {fileID: 1383767941653515629}
-  fireSpeed: 5
+  fireSpeed: 10
   fireSounds:
   - {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
   - {fileID: 8300000, guid: 5207b2a445fcb144281ab5395fe95c1d, type: 3}

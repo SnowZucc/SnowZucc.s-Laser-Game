@@ -7,21 +7,36 @@ public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    public GameObject cubePrefab;
+
+    public TextMesh HealthText;
+
+    public AudioClip bulletImpactSound; // The sound effects
+    private AudioSource audioSource; // The audio source
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        audioSource = GetComponent<AudioSource>(); // Get the audio source
+        audioSource.spatialBlend = 1f;
+
+        UpdateHealthText();
     }
 
 public void TakeDamage(float amount)
 {
+    audioSource.PlayOneShot(bulletImpactSound);
     currentHealth -= amount;
+    UpdateHealthText();
+
     if (currentHealth <= 0.0f)
     {
-
+        
     }
-    Vector3 cubePosition = transform.position + Vector3.down * transform.localScale.y / 2;
-        Instantiate(cubePrefab, cubePosition, Quaternion.identity);
 } 
+
+
+    private void UpdateHealthText()
+    {
+        HealthText.text = currentHealth +  "HP";
+    }
 }

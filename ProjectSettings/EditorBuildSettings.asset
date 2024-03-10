@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/1 Start Scene.unity
     guid: cdb14f23d389693489fe0a07bbb9efe5
   - enabled: 1
-    path: Assets/Free LowPoly SciFi Pack/Scenes/DemoScene.unity
+    path: Assets/Free LowPoly SciFi Pack/Scenes/DemoScenea.unity
     guid: a6096f87c0bb6ae47affc4d9c4af4beb
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
