@@ -34,7 +34,6 @@ public class HandForce : MonoBehaviour
                     if (health.currentHealth <= 0)
                     {
                         audioSource = GetComponent<AudioSource>();
-                        audioSource.spatialBlend = 1f;
                         audioSource.PlayOneShot(killSound);
                         var hitRigidbody = other.attachedRigidbody;
                         if (hitRigidbody != null)

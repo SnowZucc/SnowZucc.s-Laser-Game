@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -24,19 +25,22 @@ public class PlayerHealth : MonoBehaviour
 
 public void TakeDamage(float amount)
 {
+    Debug.Log("Took damage");
     audioSource.PlayOneShot(bulletImpactSound);
     currentHealth -= amount;
+    Debug.Log("Current Health: " + currentHealth);
     UpdateHealthText();
 
     if (currentHealth <= 0.0f)
     {
-        
+        Debug.Log("Ded");
     }
 } 
 
 
     private void UpdateHealthText()
     {
+        Debug.Log("Updated text");
         HealthText.text = currentHealth +  "HP";
     }
 }

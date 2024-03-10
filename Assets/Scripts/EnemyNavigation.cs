@@ -7,7 +7,7 @@ public class EnemyNavigation : MonoBehaviour
 {
     public Transform player;
     private NavMeshAgent agent;
-    private Animator animator;
+    //private Animator animator; // Animator disabled
 
     public AudioClip spawnSound; // The sound effects
     private AudioSource audioSource; // The audio source
@@ -20,7 +20,7 @@ public class EnemyNavigation : MonoBehaviour
         audioSource.PlayOneShot(spawnSound);
         
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
 
         // Assign the Main Camera's transform to the player variable
         player = Camera.main.transform;
@@ -41,12 +41,12 @@ void Update()
 
         // Create a rotation based on this direction vector
         Quaternion rotation = Quaternion.LookRotation(direction);
-        rotation *= Quaternion.Euler(0, 12, 0);
+        rotation *= Quaternion.Euler(0, 6, 0);
 
         // Apply this rotation to the enemy's transform
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5);
     }
 
-    animator.SetFloat("speed", agent.velocity.magnitude);
+    // // Animator disabledanimator.SetFloat("speed", agent.velocity.magnitude);
 }
 }
