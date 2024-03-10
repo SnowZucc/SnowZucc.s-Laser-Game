@@ -41,7 +41,7 @@ void Update()
 
         // Create a rotation based on this direction vector
         Quaternion rotation = Quaternion.LookRotation(direction);
-        rotation *= Quaternion.Euler(0, 6, 0);
+        rotation *= Quaternion.Euler(0, -4, 0);
 
         // Apply this rotation to the enemy's transform
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5);

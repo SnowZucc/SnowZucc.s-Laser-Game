@@ -8,14 +8,14 @@ public class EnemyFire : MonoBehaviour
     public GameObject bullet;
     public Transform spawnPoint;
     public float fireSpeed = 50;
-    public AudioClip[] fireSounds; // The sound effects
-    private AudioSource audioSource; // The audio source
+    public AudioClip[] fireSounds; 
+    private AudioSource audioSource; 
 public float damage;
 
 // Start is called before the first frame update
 void Start()
 {
-    audioSource = GetComponent<AudioSource>(); // Get the audio source
+    audioSource = GetComponent<AudioSource>(); 
     audioSource.spatialBlend = 1f;
     StartCoroutine(AutoFire());
 }
@@ -26,9 +26,8 @@ public void FireBullet()
     spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
     Destroy(spawnedBullet, 1f);
 
-    // Select a random sound effect
     AudioClip fireSound = fireSounds[Random.Range(0, fireSounds.Length)];
-    audioSource.PlayOneShot(fireSound); // Play the sound effect
+    audioSource.PlayOneShot(fireSound); 
 }
 
 private IEnumerator AutoFire()
@@ -37,8 +36,8 @@ private IEnumerator AutoFire()
     {
         FireBullet();
 
-        float fireCooldown = Random.Range(1f, 5f); // The cooldown time in seconds, randomly between 3 and 10
-        yield return new WaitForSeconds(fireCooldown); // Wait for the cooldown time
+        float fireCooldown = Random.Range(1f, 3f); 
+        yield return new WaitForSeconds(fireCooldown); 
     }
 }
 }

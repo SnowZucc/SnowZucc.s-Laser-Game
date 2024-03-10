@@ -1674,6 +1674,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 869391230489534860, guid: 553bae2b6b429514c9998b73cebf8347,
+        type: 3}
+      propertyPath: spawnSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2918771578459246036, guid: 553bae2b6b429514c9998b73cebf8347,
         type: 3}
       propertyPath: m_Name
@@ -1697,7 +1702,7 @@ PrefabInstance:
     - target: {fileID: 3494384265272990512, guid: 553bae2b6b429514c9998b73cebf8347,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.124
+      value: -0.067
       objectReference: {fileID: 0}
     - target: {fileID: 3494384265272990512, guid: 553bae2b6b429514c9998b73cebf8347,
         type: 3}
@@ -1745,11 +1750,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 869391230489534860, guid: 553bae2b6b429514c9998b73cebf8347, type: 3}
     - {fileID: 922774152380470913, guid: 553bae2b6b429514c9998b73cebf8347, type: 3}
-    - {fileID: 5872766678356864720, guid: 553bae2b6b429514c9998b73cebf8347, type: 3}
     - {fileID: 4492317706075314866, guid: 553bae2b6b429514c9998b73cebf8347, type: 3}
     - {fileID: 7945877921250803551, guid: 553bae2b6b429514c9998b73cebf8347, type: 3}
+    - {fileID: 869391230489534860, guid: 553bae2b6b429514c9998b73cebf8347, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
