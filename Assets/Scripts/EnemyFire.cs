@@ -36,7 +36,7 @@ private IEnumerator AutoFire()
     {
         FireBullet();
 
-        float fireCooldown = Random.Range(1f, 3f); 
+        float fireCooldown = Random.Range(2f, 3f); 
         yield return new WaitForSeconds(fireCooldown); 
     }
 }
