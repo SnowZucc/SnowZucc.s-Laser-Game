@@ -11,21 +11,10 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            var health = collision.gameObject.GetComponentInParent<Health>();
+            var health = collision.gameObject.GetComponentInParent<PlayerHealth>();
             if (health != null)
             {
-                //health.TakeDamage(damage); // Disable damage for now
-                if (health.currentHealth <= 0)
-                {
-                    // Apply force to the Rigidbody that was directly hit
-                    //audioSource.PlayOneShot(killSound);
-                    var hitRigidbody = collision.rigidbody;
-                    if (hitRigidbody != null)
-                    {
-                        // The force is in the direction of the bullet and proportional to its speed
-                        hitRigidbody.AddForce(transform.forward * GetComponent<Rigidbody>().velocity.magnitude * 2, ForceMode.Impulse);
-                    }
-                }
+                health.TakeDamage(damage); // Disable damage for now
             }
 
             // Start a coroutine to destroy the bullet after a delay

@@ -865,7 +865,7 @@ GameObject:
   - component: {fileID: 1383767941653515629}
   m_Layer: 6
   m_Name: GrabPosition (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4495,7 +4495,7 @@ GameObject:
   - component: {fileID: 7978712075140946620}
   m_Layer: 6
   m_Name: GrabPosition
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5031,7 +5031,7 @@ GameObject:
   - component: {fileID: 5806108089085259935}
   m_Layer: 6
   m_Name: GrabPositionLeft
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5150,6 +5150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 633007714637671352, guid: 3f29914b413904d40a89e972f348ebd8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 9171070566221193531, guid: 3f29914b413904d40a89e972f348ebd8,
         type: 3}
@@ -5512,12 +5517,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5496961698624335836}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0929ee9c2c82a44900e557fc934c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 2078645578156288237, guid: 6bea78cc06c407548a0f932174895762, type: 3}
+  bullet: {fileID: 2078645578156288237, guid: 106784762b56ad744a83f4ec54940368, type: 3}
   spawnPoint: {fileID: 1383767941653515629}
   fireSpeed: 5
   fireSounds:
@@ -5525,7 +5530,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5207b2a445fcb144281ab5395fe95c1d, type: 3}
   - {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
   - {fileID: 8300000, guid: 70c97e425596b8142b7b9163256c0868, type: 3}
-  damage: 5
+  damage: 10
 --- !u!114 &1078028187588249549
 MonoBehaviour:
   m_ObjectHideFlags: 0

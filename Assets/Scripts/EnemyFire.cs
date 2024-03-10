@@ -24,7 +24,7 @@ public void FireBullet()
 {
     GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
     spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
-    Destroy(spawnedBullet, 0.4f);
+    //Destroy(spawnedBullet, 0.4f);
 
     // Select a random sound effect
     AudioClip fireSound = fireSounds[Random.Range(0, fireSounds.Length)];
