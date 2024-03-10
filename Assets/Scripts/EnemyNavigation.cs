@@ -27,9 +27,26 @@ public class EnemyNavigation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+void Update()
+{
+    // Set the player's position as the destination
+    agent.destination = player.position;
+
+    // If the enemy is not moving
+    if (agent.velocity.magnitude < 0.1f)
     {
-        agent.destination = player.position;
-        animator.SetFloat("speed", agent.velocity.magnitude);
+        // Calculate the direction vector from the enemy to the player
+        Vector3 direction = player.position - transform.position;
+        direction.y = 0; // This line ensures that the enemy only rotates around the y-axis
+
+        // Create a rotation based on this direction vector
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        rotation *= Quaternion.Euler(0, 12, 0);
+
+        // Apply this rotation to the enemy's transform
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5);
     }
+
+    animator.SetFloat("speed", agent.velocity.magnitude);
+}
 }
