@@ -437,7 +437,7 @@ Transform:
   m_GameObject: {fileID: 1014258561168134180}
   serializedVersion: 2
   m_LocalRotation: {x: -0.025000706, y: 0.99521315, z: 0.09390361, w: 0.01038775}
-  m_LocalPosition: {x: -0.0646312, y: 0.07962749, z: 0.0051341197}
+  m_LocalPosition: {x: 0, y: 0.11, z: 0.01}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1592,6 +1592,7 @@ GameObject:
   - component: {fileID: 922774152380470913}
   - component: {fileID: 5872766678356864720}
   - component: {fileID: 4492317706075314866}
+  - component: {fileID: 4162536404736693146}
   m_Layer: 0
   m_Name: MaleDummy
   m_TagString: Enemy
@@ -1764,6 +1765,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4162536404736693146
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2918771578459246036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d96aeaaa0b06e9f499f0eedbc56298dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2999864786029685994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,7 +3067,7 @@ Transform:
   m_GameObject: {fileID: 6289817461401523482}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0249988, y: 0.9952123, z: -0.093913116, w: 0.0103866225}
-  m_LocalPosition: {x: -0.064631216, y: -0.07962748, z: 0.0051341197}
+  m_LocalPosition: {x: -0, y: -0.05, z: 0.01}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:

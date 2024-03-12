@@ -39,7 +39,7 @@ public class HandForce : MonoBehaviour
                         if (hitRigidbody != null)
                         {
                             Vector3 direction = other.transform.position - transform.position;
-                            hitRigidbody.AddForce(direction.normalized * currentVelocity.magnitude * 20, ForceMode.Impulse);
+                            hitRigidbody.AddForce(direction.normalized * currentVelocity.magnitude * 15, ForceMode.Impulse);
                         }
                     }
                 }
