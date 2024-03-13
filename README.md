@@ -1,3 +1,5 @@
+## SnowZucc's Laser Game
+
 Simple VR laser game versus bots in Unity made for a university project.
 
 The project includes :
